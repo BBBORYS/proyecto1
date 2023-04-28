@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("imagen/imagen2.jpg");
+            width: 100%;
+            /* La imagen tendrá el 50% del ancho del contenedor */
+            /* Reemplazar por la ruta de tu imagen de fondo */
+            background-size: cover;
+        }
+    </style>
+
+
+    <title>Guardar Ubicaciones de Estudiantes</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #f70707;
+        }
+        
+        tr:hover {
+            background-color: #565d9c;
+        }
+        
+        .busqueda {
+            padding: 8px 16px;
+            margin-bottom: 12px;
+            border: 1px solid #f90303;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Guardar Ubicaciones de Estudiantes</h1>
+
+    <form>
+        <label for="nombre">Nombre del Estudiante:</label>
+        <input type="text" id="nombre" name="nombre"><br><br>
+
+        <label for="ubicacion">Ubicación del Estudiante:</label>
+        <input type="text" id="ubicacion" name="ubicacion"><br><br>
+
+        <button type="button" onclick="guardarUbicacion()">Guardar</button>
+    </form>
+
+    <br><br>
+
+    <h2>Lista de Ubicaciones de Estudiantes</h2>
+
+    <input type="text" class="busqueda" id="busqueda" onkeyup="buscarUbicacion()" placeholder="Buscar...">
+
+    <table id="tabla">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Ubicación</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí se agregarán los datos de los estudiantes -->
+        </tbody>
+    </table>
+
+    <script>
+        var estudiantes = []; // Array para almacenar los estudiantes
+
+        function guardarUbicacion() {
+            var nombre = document.getElementById("nombre").value;
+            var ubicacion = document.getElementById("ubicacion").value;
+
+            // Agregar los datos del estudiante al array
+            estudiantes.push({
+                nombre: nombre,
+                ubicacion: ubicacion
+            });
+
+            // Limpiar los campos de entrada
+            document.getElementById("nombre").value = "";
+            document.getElementById("ubicacion").value = "";
+
+            // Actualizar la tabla
+            actualizarTabla();
+        }
+
+        function actualizarTabla() {
+            // Limpiar la tabla
+            document.querySelector("#tabla tbody").innerHTML = "";
+
+            // Agregar cada estudiante a la tabla
+            for (var i = 0; i < estudiantes.length; i++) {
+                var estudiante = estudiantes[i];
+                var fila = document.createElement("tr");
+                var nombreCelda = document.createElement("td");
+                var ubicacionCelda = document.createElement("td");
+                nombreCelda.textContent = estudiante.nombre;
+                ubicacionCelda.textContent = estudiante.ubicacion;
+                fila.appendChild(nombreCelda);
+                fila.appendChild(ubicacionCelda);
+
+                // Agregar colores de fila alternados
+                if (i % 2 === 0) {
+                    fila.classList.add("fila-par");
+                }
+
+                document.querySelector("#tabla tbody").appendChild(fila);
+            }
+        }
+    </script>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        tr.fila-par {
+            background-color: #f2f2f2;
+        }
+        
+        input[type=text] {
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            width: 100%;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    </head>
+
+    <body>
+        <h1>Guardar Ubicaciones de Estudiantes</h1>
+
+        <form>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required><br><br>
+
+            <label for="ubicacion">Ubicación:</label>
+            <input type="text" id="ubicacion" name="ubicacion" required><br><br>
+
+            <button type="button" onclick="guardarUbicacion()">Guardar Ubicación</button>
+        </form>
+
+        <br>
+
+        <input type="text" id="busqueda" onkeyup="buscarUbicacion()" placeholder="Buscar por nombre o ubicación...">
+
+        <table id="tabla">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Ubicación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Las filas de la tabla se crearán dinámicamente con JavaScript -->
+            </tbody>
+        </table>
+    </body>
+
+</html>

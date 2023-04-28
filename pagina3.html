@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tabla de estudiantes</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        td.notas {
+            font-weight: bold;
+            color: white;
+        }
+        
+        .nota-alta {
+            background-color: green;
+        }
+        
+        .nota-media {
+            background-color: orange;
+        }
+        
+        .nota-baja {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Edad</th>
+            <th>Sexo</th>
+            <th class="notas">Nota</th>
+        </tr>
+        <tr>
+            <td>María</td>
+            <td>García</td>
+            <td>22</td>
+            <td>Femenino</td>
+            <td class="nota-alta">8.5</td>
+        </tr>
+        <tr>
+            <td>Juan</td>
+            <td>Pérez</td>
+            <td>21</td>
+            <td>Masculino</td>
+            <td class="nota-media">7.0</td>
+        </tr>
+        <tr>
+            <td>Andrea</td>
+            <td>Martínez</td>
+            <td>23</td>
+            <td>Femenino</td>
+            <td class="nota-alta">9.0</td>
+        </tr>
+        <tr>
+            <td>Pedro</td>
+            <td>Rodríguez</td>
+            <td>20</td>
+            <td>Masculino</td>
+            <td class="nota-baja">4.5</td>
+        </tr>
+        <!-- Agrega aquí más filas con la información de otros estudiantes -->
+    </table>
+</body>
+
+</html>

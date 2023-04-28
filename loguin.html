@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login y Registro con validación</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("imagen/imagen1.jpg");
+            /* Reemplazar por la ruta de tu imagen de fondo */
+            background-size: cover;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 400px;
+        }
+        
+        h2 {
+            text-align: center;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        label {
+            font-weight: bold;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+        
+        .register-link,
+        .login-link {
+            margin-top: 10px;
+            text-align: center;
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container">
+            <center>
+                <img src="https://www.uleam.edu.ec/wp-content/uploads/2012/09/LOGO-ULEAM.png" height="60px" width="80px" />
+                <img src="https://www.uleam.edu.ec/wp-content/uploads/2012/09/LOGO-ULEAM.png"  height="50%"  width="150%" />
+            </center>
+
+
+
+            <h2>Iniciar sesión</h2>
+            <form class="login-form" method="post">
+                <label for="login-username">Nombre de usuario:</label>
+                <input type="text" id="login-username" name="login-username" required>
+                <label for="login-password">Contraseña:</label>
+                <input type="password" id="login-password" name="login-password" required>
+                <input type="submit" value="Iniciar sesión">
+                <p class="register-link">¿No tienes cuenta? <a href="#" class="show-register">Regístrate</a></p>
+            </form>
+            <form class="register-form hidden" method="post">
+                <label for="register-username">Nombre de usuario:</label>
+                <input type="text" id="register-username" name="register-username" required>
+                <label for="register-email">Correo electrónico:</label>
+                <input type="email" id="register-email" name="register-email" required>
+                <label for="register-password">Contraseña:</label>
+                <input type="password" id="register-password" name="register-password" required>
+                <input type="submit" value="Registrarse">
+                <p class="login-link">¿Ya tienes cuenta? <a href="#" class="show-login">Iniciar sesión</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const loginForm = document.querySelector('.login-form');
+        const registerForm = document.querySelector('.register-form');
+        const showRegisterLink = document.querySelector('.show-register');
+        const showLoginLink = document.querySelector('.show-login');
+
+        showRegisterLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginForm.classList.add('hidden');
+            registerForm.classList.remove('hidden');
+        });
+
+        showLoginLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginForm.classList.remove('hidden');
+            registerForm.classList.add('hidden');
+        });
+    </script>
+</body>
+
+</html>

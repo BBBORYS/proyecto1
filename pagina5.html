@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Envío de correo electrónico</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("imagen/imagen1.jpg");
+            /* Reemplazar por la ruta de tu imagen de fondo */
+            background-size: cover;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #5a7c54;
+            padding: 20px;
+        }
+        
+        h1 {
+            margin-top: 0;
+            text-align: center;
+            color: #333;
+        }
+        
+        form {
+            background-color: #555353;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 5px rgb(88, 116, 78);
+            margin: auto;
+            max-width: 600px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #fbfafa;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #4366f3;
+            border-radius: 3px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        
+        input[type="file"] {
+            margin-bottom: 20px;
+        }
+        
+        button[type="submit"] {
+            background-color: #2bff00;
+            color: #fcfdfb;
+            border: none;
+            border-radius: 3px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #071ffb;
+        }
+        
+        .alert {
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 3px;
+        }
+        
+        .alert-success {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+        }
+        
+        .alert-danger {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Envío de correo electrónico</h1>
+    <form id="form-enviar-correo" enctype="multipart/form-data">
+        <label for="para">Para:</label>
+        <input type="email" id="para" name="para" required>
+
+        <label for="asunto">Asunto:</label>
+        <input type="text" id="asunto" name="asunto" required>
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" required></textarea>
+
+        <label for="archivo">Adjuntar archivo (PDF):</label>
+        <input type="file" id="archivo" name="archivo" accept="application/pdf">
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        const form = document.getElementById("form-enviar-correo");
+
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            // Obtener los valores del formulario
+            const para = form.elements["para"].value;
+            const asunto = form.elements["asunto"].value;
+            const mensaje = form.elements["mensaje"].value;
+            const archivo = form.elements["archivo"].files[0];
+
+            // Crear objeto FormData para enviar los datos del formulario
+            const formData = new FormData();
+            formData.append("para", para);
+            formData.append("asunto", asunto);
+            formData.append("mensaje", mensaje);
+            if (archivo) {
+                formData.append("archivo", archivo);
+            }
+
+            // Simular envío del formulario
+            alert("El correo electrónico se ha enviado con éxito.");
+            form.reset();
+        });
+    </script>
+</body>

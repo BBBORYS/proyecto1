@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Información personal</title>
+    <style>
+        /* Estilos para la página */
+        
+        body {
+            background-image: url('fondo.jpg');
+            /* Ruta a la imagen de fondo */
+            background-size: cover;
+            background-position: center center;
+            font-family: Arial, sans-serif;
+            color: #040404;
+            margin: 0;
+            padding: 0;
+        }
+        
+        h1 {
+            font-size: 36px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(108, 162, 90, 0.8);
+            color: #353535;
+            font-size: 16px;
+        }
+        
+        button {
+            background-color: #22806d;
+            color: #fdfdfd;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.2s ease;
+        }
+        
+        button:hover {
+            background-color: #16A085;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Contenedor principal -->
+    <div id="container">
+        <!-- Cabecera -->
+        <header>
+            <img src="https://www.uleam.edu.ec/wp-content/uploads/2012/09/LOGO-ULEAM.png" height="60px" width="80px" />
+            <img src="https://www.uleam.edu.ec/wp-content/uploads/2012/09/LOGO-ULEAM.png"  height="50%"  width="150%" />
+            <h1>Mi información personal</h1>
+            <!-- Espacio para la foto de perfil -->
+            <div id="profile-pic">
+
+                <center>
+                    <img src="C:\Users\borys\OneDrive\Escritorio\tarea\imagen\imagen2.jpg" height="130px" width="200px" />
+                    <img src="C:\Users\borys\OneDrive\Escritorio\tarea\imagen\imagen2.jpg"  height="50%"  width="150%" />
+                </center>
+            </div>
+        </header>
+
+        <!-- Formulario de información personal -->
+        <form id="personal-info-form">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" value="Juan Perez">
+
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" value="juan.perez@example.com">
+
+            <label for="phone">Teléfono:</label>
+            <input type="tel" id="phone" name="phone" value="123456789">
+
+            <label for="address">Dirección:</label>
+            <textarea id="address" name="address">Calle Falsa 123</textarea>
+
+            <!-- Botones para editar y guardar información -->
+            <div id="buttons-container">
+                <button type="button" id="edit-btn" onclick="enableEditing()">Editar información</button>
+                <button type="submit" id="save-btn" disabled>Guardar información</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Función para habilitar la edición de información personal
+        function enableEditing() {
+            // Obtener elementos de información personal
+            var name = document.getElementById("name");
+            var age = document.getElementById("age");
+            var email = document.getElementById("email");
+            var phone = document.getElementById("phone");
+
+            // Habilitar edición
+            name.contentEditable = true;
+            age.contentEditable = true;
+            email.contentEditable = true;
+            phone.contentEditable = true;
+
+            // Cambiar estilo para indicar que se puede editar
+            name.style.backgroundColor = "#f2f2f2";
+            age.style.backgroundColor = "#f2f2f2";
+            email.style.backgroundColor = "#f2f2f2";
+            phone.style.backgroundColor = "#f2f2f2";
+        }
+
+        // Función para deshabilitar la edición de información personal
+        function disableEditing() {
+            // Obtener elementos de información personal
+            var name = document.getElementById("name");
+            var age = document.getElementById("age");
+            var email = document.getElementById("email");
+            var phone = document.getElementById("phone");
+
+            // Deshabilitar edición
+            name.contentEditable = false;
+            age.contentEditable = false;
+            email.contentEditable = false;
+            phone.contentEditable = false;
+
+            // Cambiar estilo para indicar que no se puede editar
+            name.style.backgroundColor = "transparent";
+            age.style.backgroundColor = "transparent";
+            email.style.backgroundColor = "transparent";
+            phone.style.backgroundColor = "transparent";
+        }
+
+        // Función para guardar la información personal editada
+        function savePersonalInfo() {
+            // Obtener elementos de información personal
+            var name = document.getElementById("name");
+            var age = document.getElementById("age");
+            var email = document.getElementById("email");
+            var phone = document.getElementById("phone");
+
+            // Deshabilitar edición y restaurar estilo
+            disableEditing();
+
+            // Mostrar mensaje de confirmación
+            alert("La información personal ha sido actualizada:\n\nNombre: " + name.textContent + "\nEdad: " + age.textContent + "\nEmail: " + email.textContent + "\nTeléfono: " + phone.textContent);
+        }
+    </script>
+    </head>
+
+    <body>
+        <center>
+            <div id="header">
+
+
+
+
+                <h1>Mi Perfil</h1>
+
+                <button onclick="enableEditing()">Editar información personal</button>
+                <button onclick="savePersonalInfo()">Guardar cambios</button>
+            </div>
+
+            <div id="profile-pic">
+                <img src="profile-pic.jpg" alt="Foto de perfil">
+            </div>
+
+            <div id="personal-info">
+                <h2>Información personal</h2>
+                <table>
+                    <tr>
+                        <td>Nombre:</td>
+                        <td id="name">VERA BORYS </td>
+                    </tr>
+                    <tr>
+                        <td>Edad:</td>
+                        <td id="age">30</td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td id="email">VERA BORYS@example.com</td>
+                    </tr>
+                    <tr>
+                        <td>Teléfono:</td>
+                        <td id="phone">123456789</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="background-pic">
+                <img src="background-pic.jpg" alt="Foto de fondo">
+            </div>
+        </center>
+    </body>
+
+</html>
